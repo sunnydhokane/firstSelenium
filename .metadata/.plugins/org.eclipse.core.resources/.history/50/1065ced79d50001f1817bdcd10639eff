@@ -1,0 +1,54 @@
+package AQE.day2;
+import java.time.Duration;
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class FluentWaitDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver=new FirefoxDriver();
+//		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(20));
+		
+		String eTitle="Demo Guru99 Page";
+		String aTitle="";
+		driver.get("https://demo.guru99.com/test/guru99home/");
+		driver.manage().window().maximize();
+		aTitle=driver.getTitle();
+		if(aTitle.equals(eTitle)) {
+			System.out.println("test passed");
+		}
+		else {
+			System.out.println("test failed");
+		}
+		
+		
+		
+		
+			Wait<WebDriver> wait= new FluentWait<WebDriver>(driver)
+					.withTimeout(Duration.ofSeconds(5))
+					.pollingEvery(Duration.ofSeconds(3))
+					.ignoring(NoSuchElementException.class);
+			
+			WebElement clickseleniumlink=wait.until(
+					new Function<WebDriver, WebElement>(){
+						
+						public WebElement apply(WebDriver driver) {
+							return driver.findElement(By.xpath(" "))
+						}
+					});
+			
+					
+			
+					
+
+	}
+
+}

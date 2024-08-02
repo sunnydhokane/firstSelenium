@@ -1,0 +1,20 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class demo1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		FirefoxDriver dr=new FirefoxDriver();
+		
+		ChromeDriver ch=new ChromeDriver();
+		ch.get("http://www.google.com");
+		ch.manage().window().maximize();
+		ch.findElement(By.id("APjFqb")).sendKeys("mobile");
+		ch.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[4]/center/input[1]")).click();
+		
+
+	}
+
+}
